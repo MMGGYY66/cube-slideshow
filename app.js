@@ -2,14 +2,14 @@ let x = 0, bool = false, interval;
 
 const rotate = () => {
     const cubes = document.querySelectorAll('.cube');
-    
+
     Array.from(cubes).forEach(cube => cube.style.transform = `rotateY(${x}deg)`);
 }
 
 const changePlayPause = () => {
     const i = document.querySelector('.play-pause i');
     const cls = i.classList[1];
-    if(cls === 'fa-play') {
+    if (cls === 'fa-play') {
         i.classList.remove('fa-play');
         i.classList.add('fa-pause');
     } else {
@@ -19,7 +19,7 @@ const changePlayPause = () => {
 }
 
 const playPause = () => {
-    if(!bool) {
+    if (!bool) {
         interval = setInterval(() => {
             x -= 90;
             rotate();
@@ -31,13 +31,13 @@ const playPause = () => {
         changePlayPause();
         bool = false;
     }
-    
+
 }
 
 document.querySelector('.left-arrow').addEventListener('click', () => {
     x += 90;
     rotate();
-    if(bool) {
+    if (bool) {
         playPause();
     }
 });
@@ -55,7 +55,7 @@ document.querySelector('.left-arrow').addEventListener('mouseout', () => {
 document.querySelector('.right-arrow').addEventListener('click', () => {
     x -= 90;
     rotate();
-    if(bool) {
+    if (bool) {
         playPause();
     }
 });
